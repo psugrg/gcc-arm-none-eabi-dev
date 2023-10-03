@@ -1,0 +1,4 @@
+services:
+  gcc-arm-none-eabi-dev:
+    image: gcc-arm-none-eabi-dev:0.1
+    build: .
