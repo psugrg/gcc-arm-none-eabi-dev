@@ -1,0 +1,17 @@
+name: Manual publish image (LATEST) to Docker Hub
+on:
+  [workflow_dispatch]
+
+jobs:
+  publish_image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: build
+        run: |
+          docker build . -t psugrg/gcc-arm-none-eabi-dev:latest
+      - name: publish
+        run: |
+          docker login -u psugrg -p ${{ secrets.DOCKER_HUB_TOKEN }}
+          docker push psugrg/gcc-arm-none-eabi-dev:latest
