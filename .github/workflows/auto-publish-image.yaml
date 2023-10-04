@@ -1,7 +1,11 @@
-name: Automatic publish image (RELEASE) to Docker Hub
+name: Automatic publish image to Docker Hub
 
 on:
-    release:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  release:
         types: [published]
 
 jobs:
